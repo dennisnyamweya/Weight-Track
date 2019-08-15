@@ -247,12 +247,12 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
                          timedelta(days=1)).strftime('%B %d, %Y')
 
-#         # redirect back to diary; if date is today, exclude ugliness from URL
-#         todays_date = datetime.now().strftime('%B %d, %Y')
-#         if date_pick == todays_date:
-#             return redirect(url_for('diary'))
-#         else:
-#             return redirect(url_for('diary', date_pick=date_pick))
+        # redirect back to diary; if date is today, exclude ugliness from URL
+        todays_date = datetime.now().strftime('%B %d, %Y')
+        if date_pick == todays_date:
+            return redirect(url_for('diary'))
+        else:
+            return redirect(url_for('diary', date_pick=date_pick))
 
 
 # @app.route('/diary/quickadd/<string:date>/<string:meal>', methods=['GET', 'POST'])

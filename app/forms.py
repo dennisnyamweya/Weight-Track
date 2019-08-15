@@ -80,38 +80,38 @@ class QuickAddCals(FlaskForm):
     quick_add = SubmitField('Update')
 
 
-# class AddToDiaryForm(FlaskForm):
-#     MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"),
-#                     ("Dinner", "Dinner"), ("Snacks", "Snacks")]
-#     add = SubmitField('Add')
-#     meal = SelectField(label='Select Meal',
-#                        choices=MEAL_CHOICES, validators=[DataRequired()])
-#     quantity = StringField(label='Quantity', validators=[DataRequired()])
+class AddToDiaryForm(FlaskForm):
+    MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"),
+                    ("Dinner", "Dinner"), ("Snacks", "Snacks")]
+    add = SubmitField('Add')
+    meal = SelectField(label='Select Meal',
+                       choices=MEAL_CHOICES, validators=[DataRequired()])
+    quantity = StringField(label='Quantity', validators=[DataRequired()])
 
 
-# class DiaryDatePicker(FlaskForm):
-#     date = StringField(default=datetime.utcnow().strftime(
-#         '%B %d, %Y'), validators=[DataRequired()])
+class DiaryDatePicker(FlaskForm):
+    date = StringField(default=datetime.utcnow().strftime(
+        '%B %d, %Y'), validators=[DataRequired()])
 
 
-# class RemoveFood(FlaskForm):
-#     entry_id = HiddenField('', validators=[DataRequired()])
+class RemoveFood(FlaskForm):
+    entry_id = HiddenField('', validators=[DataRequired()])
 
 
-# class RegistrationForm(FlaskForm):
-#     username = StringField('Username', validators=[DataRequired()])
-#     email = StringField('Email', validators=[DataRequired(), Email()])
-#     password = PasswordField('Password', validators=[DataRequired()])
-#     password2 = PasswordField('Repeat Password', validators=[
-#         DataRequired(), EqualTo('password')])
-#     submit = SubmitField('Register')
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat Password', validators=[
+        DataRequired(), EqualTo('password')])
+    submit = SubmitField('Register')
 
-#     def validate_username(self, username):
-#         user = User.query.filter_by(username=username.data).first()
-#         if user is not None:
-#             raise ValidationError('Please use a different username.')
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user is not None:
+            raise ValidationError('Please use a different username.')
 
-#     def validate_email(self, email):
-#         user = User.query.filter_by(email=email.data).first()
-#         if user is not None:
-#             raise ValidationError('Please use a different email address.')
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is not None:
+            raise ValidationError('Please use a different email address.')

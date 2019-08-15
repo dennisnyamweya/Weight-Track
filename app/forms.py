@@ -79,7 +79,7 @@ class QuickAddCals(FlaskForm):
     quick_add = SubmitField('Update')
 
 
-# class AddToDiaryForm(FlaskForm):
+class AddToDiaryForm(FlaskForm):
 #     MEAL_CHOICES = [("Breakfast", "Breakfast"), ("Lunch", "Lunch"),
 #                     ("Dinner", "Dinner"), ("Snacks", "Snacks")]
 #     add = SubmitField('Add')

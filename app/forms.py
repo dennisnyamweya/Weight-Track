@@ -71,12 +71,12 @@ class SetMacroGrams(FlaskForm):
         DataRequired()])
 
 
-# class QuickAddCals(FlaskForm):
-#     calories = IntegerField('Calories', validators=[DataRequired()])
-#     protein = IntegerField('Protein', validators=[DataRequired()])
-#     fat = IntegerField('Fat', validators=[DataRequired()])
-#     carbs = IntegerField('Carbs', validators=[DataRequired()])
-#     quick_add = SubmitField('Update')
+class QuickAddCals(FlaskForm):
+    calories = IntegerField('Calories', validators=[DataRequired()])
+    protein = IntegerField('Protein', validators=[DataRequired()])
+    fat = IntegerField('Fat', validators=[DataRequired()])
+    carbs = IntegerField('Carbs', validators=[DataRequired()])
+    quick_add = SubmitField('Update')
 
 
 # class AddToDiaryForm(FlaskForm):

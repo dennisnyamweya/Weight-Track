@@ -61,14 +61,14 @@ class SetMacroGrams(FlaskForm):
     change_macros = SubmitField('Update')
 
 
-# class CopyMealForm(FlaskForm):
-#     MEAL_OPTIONS = [('Breakfast', 'Breakfast'),
-#                     ('Lunch', 'Lunch'),
-#                     ('Dinner', 'Dinner'),
-#                     ('Snacks', 'Snacks')]
-#     dt = DateField('DatePicker', format='%B %d, %Y')
-#     meal_select = SelectField('Meal', choices=MEAL_OPTIONS, validators=[
-#         DataRequired()])
+ 
+    MEAL_OPTIONS = [('Breakfast', 'Breakfast'),
+                    ('Lunch', 'Lunch'),
+                    ('Dinner', 'Dinner'),
+                    ('Snacks', 'Snacks')]
+    dt = DateField('DatePicker', format='%B %d, %Y')
+    meal_select = SelectField('Meal', choices=MEAL_OPTIONS, validators=[
+        DataRequired()])
 
 
 # class QuickAddCals(FlaskForm):

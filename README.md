@@ -92,9 +92,7 @@ Insert the API Key you received from News Api where is.
 ## LICENSE
 
 The application is under an [MIT License]
-# Weight-Tracker
 
-##Description
 
 
 

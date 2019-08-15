@@ -12,8 +12,8 @@ from app.models import User
 from datetime import datetime
 
 
-# class SearchForm(FlaskForm):
-#     search = StringField('Search', validators=[DataRequired()])
+class SearchForm(FlaskForm):
+    search = StringField('Search', validators=[DataRequired()])
 
 
 # class LoginForm(FlaskForm):

@@ -97,7 +97,7 @@ class RemoveFood(FlaskForm):
     entry_id = HiddenField('', validators=[DataRequired()])
 
 
-# class RegistrationForm(FlaskForm):
+class RegistrationForm(FlaskForm):
 #     username = StringField('Username', validators=[DataRequired()])
 #     email = StringField('Email', validators=[DataRequired(), Email()])
 #     password = PasswordField('Password', validators=[DataRequired()])

@@ -18,17 +18,17 @@
 		<div class="clearfix"></div>
 		</br>
 		<form action="" method=POST>
-			<table class="table table-condensed table-custom">
+			<table class=" table table-condensed table-custom">
 				{% if recent_list == True %}
 				<tr>
 					<th colspan="2">
 						<div class="form-inline">
 							{% if meal == None %}
 							<select name="mealselect" class="form-control" id="sel1">
-								<option>Breakfast</option>
-								<option>Lunch</option>
+								<option >Breakfast</option>
+								<option>Lunch </option>
 								<option>Dinner</option>
-								<option>Snacks</option>
+								<option>Snacks </option>
 							</select>
 							{% endif %}
 							<button type="submit" class="btn btn-primary" name="action" value="multiadd">Add Checked</button>
@@ -40,7 +40,7 @@
 				<tr class="content-rows">
 					{% if recent_list == True %}
 					<td class="text-center">
-						<input type="checkbox" name="selected" value="{{ food_name[2] }}">
+						<input type="checkbox"  name="selected" value="{{ food_name[2] }}">
 					</td>
 					{% endif %}
 					<td>

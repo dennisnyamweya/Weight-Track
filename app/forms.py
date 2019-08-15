@@ -9,6 +9,7 @@ from wtforms import (StringField,
                      DateField)
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
+
 from datetime import datetime
 
 
@@ -61,7 +62,7 @@ class SetMacroGrams(FlaskForm):
     change_macros = SubmitField('Update')
 
 
-class CopyMealForm(FlaskForm):
+ 
     MEAL_OPTIONS = [('Breakfast', 'Breakfast'),
                     ('Lunch', 'Lunch'),
                     ('Dinner', 'Dinner'),

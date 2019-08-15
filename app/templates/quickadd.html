@@ -3,47 +3,49 @@
 <div id="page-wrapper">
     <div class="container-fluid main-content-fluid">
         <h2 class='text-center'>Quick-add Calories</h2>
-        <hr/>
-        <br/>
+        <hr />
+        <br />
         <form class="text-left col-md-6 col-md-offset-2" method="post">
             {{ form.hidden_tag() }}
             <div class="form-group row">
                 <div class="col-md-6 col-form-label text-right">
                     {{ form.calories.label }}:
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.calories(class="form-control") }}
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    {{ form.calories(class="form-control") }}
+                <div class="form-group row">
+                    <div class="col-md-6 col-form-label text-right">
+                        {{ form.protein.label }}:
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.protein(class="form-control") }}
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6 col-form-label text-right">
-                    {{ form.protein.label }}:
+                <div class="form-group row">
+                    <div class="col-md-6 col-form-label text-right">
+                        {{ form.fat.label }}:
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.fat(class="form-control") }}
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    {{ form.protein(class="form-control") }}
+                <div class="form-group row">
+                    <div class="col-md-6 col-form-label text-right">
+                        {{ form.carbs.label }}:
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.carbs(class="form-control") }}
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6 col-form-label text-right">
-                    {{ form.fat.label }}:
+                <div class="col-md-6 text-right">
+                    {{ form.quick_add(class="btn btn-primary mb-2") }}
                 </div>
-                <div class="col-md-6">
-                    {{ form.fat(class="form-control") }}
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-6 col-form-label text-right">
-                    {{ form.carbs.label }}:
-                </div>
-                <div class="col-md-6">
-                    {{ form.carbs(class="form-control") }}
-                </div>
-            </div>
-            <div class="col-md-6 text-right">
-                {{ form.quick_add(class="btn btn-primary mb-2") }}
-            </div>
         </form>
     </div>
 </div>
 
+
 {% endblock %}
+ 

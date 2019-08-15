@@ -1,13 +1,13 @@
 from flask_wtf import FlaskForm
-# from wtforms import (StringField,
-#                      SubmitField,
-#                      BooleanField,
-#                      PasswordField,
-#                      HiddenField,
-#                      SelectField,
-#                      IntegerField,
-#                      DateField)
-# from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
+from wtforms import (StringField,
+                     SubmitField,
+                     BooleanField,
+                     PasswordField,
+                     HiddenField,
+                     SelectField,
+                     IntegerField,
+                     DateField)
+from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 # from app.models import User
 # from datetime import datetime
 

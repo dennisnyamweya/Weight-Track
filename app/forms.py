@@ -48,9 +48,9 @@ class SetMacroForm(FlaskForm):
         DataRequired()], default=.1)
     fat = SelectField('Fat', choices=PERCENT_CHOICES,
                       validators=[DataRequired()])
-#     carbs = SelectField('Carbs', choices=PERCENT_CHOICES,
-#                         validators=[DataRequired()])
-#     change_macros = SubmitField('Update')
+    carbs = SelectField('Carbs', choices=PERCENT_CHOICES,
+                        validators=[DataRequired()])
+    change_macros = SubmitField('Update')
 
 
 # class SetMacroGrams(FlaskForm):

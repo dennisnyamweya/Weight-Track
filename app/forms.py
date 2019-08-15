@@ -8,8 +8,8 @@ from wtforms import (StringField,
                      IntegerField,
                      DateField)
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
-# from app.models import User
-# from datetime import datetime
+from app.models import User
+from datetime import datetime
 
 
 # class SearchForm(FlaskForm):

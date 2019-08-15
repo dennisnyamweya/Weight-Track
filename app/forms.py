@@ -54,11 +54,11 @@ class SetMacroForm(FlaskForm):
 
 
 class SetMacroGrams(FlaskForm):
-#     calories = IntegerField('Calories', validators=[DataRequired()])
-#     protein = IntegerField('Protein', validators=[DataRequired()])
-#     fat = IntegerField('Fat', validators=[DataRequired()])
-#     carbs = IntegerField('Carbs', validators=[DataRequired()])
-#     change_macros = SubmitField('Update')
+    calories = IntegerField('Calories', validators=[DataRequired()])
+    protein = IntegerField('Protein', validators=[DataRequired()])
+    fat = IntegerField('Fat', validators=[DataRequired()])
+    carbs = IntegerField('Carbs', validators=[DataRequired()])
+    change_macros = SubmitField('Update')
 
 
 # class CopyMealForm(FlaskForm):

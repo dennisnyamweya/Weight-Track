@@ -8,11 +8,6 @@ body {
       padding-bottom: 10px;
        border-bottom: 1px solid #eee;
   }
-  
-  /*
-   * Top navigation
-   * Hide default border to remove 1px line.
-   */
   .navbar-fixed-top {
     border: 0;
     background-color: #41D89E;

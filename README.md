@@ -13,7 +13,7 @@ python
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
 | to add post | click on sign up |  fill in the registration field |
-| to add post if u had already signed up | click on login | fill in the field |
+| to intract with app | click on login | fill in the field  and submit |
 
 ## Known bugs
 
@@ -68,6 +68,9 @@ no bugs
          `$ pip install flask-simplemde markdown2
          
          `$pip install gunicorn
+## installing alternative
+
+`$ pip install -r requirements.txt
 
 ## Setting up the API Key
 

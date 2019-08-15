@@ -255,34 +255,34 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
             return redirect(url_for('diary', date_pick=date_pick))
 
 
-# @app.route('/diary/quickadd/<string:date>/<string:meal>', methods=['GET', 'POST'])
-# @login_required
-# def quickadd(date=datetime.now().strftime('%B %d, %Y'), meal=None):
-#     user = User.query.filter_by(id=current_user.get_id()).first()
-#     form = QuickAddCals()
+@app.route('/diary/quickadd/<string:date>/<string:meal>', methods=['GET', 'POST'])
+@login_required
+def quickadd(date=datetime.now().strftime('%B %d, %Y'), meal=None):
+    user = User.query.filter_by(id=current_user.get_id()).first()
+    form = QuickAddCals()
 
-#     if request.method == 'GET':
-#         return render_template('quickadd.html', user=user, form=form)
+    if request.method == 'GET':
+        return render_template('quickadd.html', user=user, form=form)
 
-#     if request.method == 'POST':
-#         try:
-#             float(form.calories.data)
-#             float(form.carbs.data)
-#             float(form.fat.data)
-#             float(form.protein.data)
-#         except:
-#             flash("Please enter valid numbers.")
-#         else:
-#             food = Food(food_name='Quick Add', count=1,
-#                 kcal=form.calories.data,
-#                 protein=form.protein.data,
-#                 fat=form.fat.data,
-#                 carbs=form.carbs.data,
-#                 unit='', meal=meal,
-#                 date=date, ndbno=-1, user_id=current_user.get_id())
-#             db.session.add(food)
-#             db.session.commit()
-#         return redirect(url_for('diary', date_pick=date))
+    if request.method == 'POST':
+        try:
+            float(form.calories.data)
+            float(form.carbs.data)
+            float(form.fat.data)
+            float(form.protein.data)
+        except:
+            flash("Please enter valid numbers.")
+        else:
+            food = Food(food_name='Quick Add', count=1,
+                kcal=form.calories.data,
+                protein=form.protein.data,
+                fat=form.fat.data,
+                carbs=form.carbs.data,
+                unit='', meal=meal,
+                date=date, ndbno=-1, user_id=current_user.get_id())
+            db.session.add(food)
+            db.session.commit()
+        return redirect(url_for('diary', date_pick=date))
 
 
 # @app.route('/diary/copyto/<string:date>/<string:meal>', methods=['GET', 'POST'])

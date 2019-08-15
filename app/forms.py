@@ -93,8 +93,8 @@ class DiaryDatePicker(FlaskForm):
         '%B %d, %Y'), validators=[DataRequired()])
 
 
-# class RemoveFood(FlaskForm):
-#     entry_id = HiddenField('', validators=[DataRequired()])
+class RemoveFood(FlaskForm):
+    entry_id = HiddenField('', validators=[DataRequired()])
 
 
 # class RegistrationForm(FlaskForm):

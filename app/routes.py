@@ -209,126 +209,126 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
         total_protein = dict(meals)
         total_fat = dict(meals)
 
-        for food in foods:
-            total_cals['total'] = total_cals['total'] + food.kcal
-            total_carbs['total'] = total_carbs['total'] + food.carbs
-            total_protein['total'] = total_protein['total'] + food.protein
-            total_fat['total'] = total_fat['total'] + food.fat
+#         for food in foods:
+#             total_cals['total'] = total_cals['total'] + food.kcal
+#             total_carbs['total'] = total_carbs['total'] + food.carbs
+#             total_protein['total'] = total_protein['total'] + food.protein
+#             total_fat['total'] = total_fat['total'] + food.fat
 
-            for meal in meals:
-                if str(food.meal) == str(meal):
-                    total_cals[meal] = total_cals[meal] + food.kcal
-                    total_carbs[meal] = total_carbs[meal] + food.carbs
-                    total_protein[meal] = total_protein[meal] + food.protein
-                    total_fat[meal] = total_fat[meal] + food.fat
+#             for meal in meals:
+#                 if str(food.meal) == str(meal):
+#                     total_cals[meal] = total_cals[meal] + food.kcal
+#                     total_carbs[meal] = total_carbs[meal] + food.carbs
+#                     total_protein[meal] = total_protein[meal] + food.protein
+#                     total_fat[meal] = total_fat[meal] + food.fat
 
-        return render_template('diary.html', foods=foods, user=user, form=form,
-                            form2=form2, total_fat=total_fat,
-                            total_cals=total_cals, total_carbs=total_carbs,
-                            total_protein=total_protein, date_pick=date_pick)
+#         return render_template('diary.html', foods=foods, user=user, form=form,
+#                             form2=form2, total_fat=total_fat,
+#                             total_cals=total_cals, total_carbs=total_carbs,
+#                             total_protein=total_protein, date_pick=date_pick)
 
-    if request.method == 'POST':
+#     if request.method == 'POST':
 
-        if request.form["action"] == "remove":
-            remove_id = form.entry_id.data
-            user_id_for_row = Food.query.filter_by(
-                id=remove_id).first().user_id
-            if str(user_id_for_row) == current_user.get_id():
-                Food.query.filter_by(id=remove_id).delete()
-                db.session.commit()
-            else:
-                flash("Cannot access this entry.")
+#         if request.form["action"] == "remove":
+#             remove_id = form.entry_id.data
+#             user_id_for_row = Food.query.filter_by(
+#                 id=remove_id).first().user_id
+#             if str(user_id_for_row) == current_user.get_id():
+#                 Food.query.filter_by(id=remove_id).delete()
+#                 db.session.commit()
+#             else:
+#                 flash("Cannot access this entry.")
 
-        elif request.form["action"] == "back":
-            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') -
-                         timedelta(days=1)).strftime('%B %d, %Y')
+#         elif request.form["action"] == "back":
+#             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') -
+#                          timedelta(days=1)).strftime('%B %d, %Y')
 
-        elif request.form["action"] == "forward":
-            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
-                         timedelta(days=1)).strftime('%B %d, %Y')
+#         elif request.form["action"] == "forward":
+#             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
+#                          timedelta(days=1)).strftime('%B %d, %Y')
 
-        # redirect back to diary; if date is today, exclude ugliness from URL
-        todays_date = datetime.now().strftime('%B %d, %Y')
-        if date_pick == todays_date:
-            return redirect(url_for('diary'))
-        else:
-            return redirect(url_for('diary', date_pick=date_pick))
-
-
-@app.route('/diary/quickadd/<string:date>/<string:meal>', methods=['GET', 'POST'])
-@login_required
-def quickadd(date=datetime.now().strftime('%B %d, %Y'), meal=None):
-    user = User.query.filter_by(id=current_user.get_id()).first()
-    form = QuickAddCals()
-
-    if request.method == 'GET':
-        return render_template('quickadd.html', user=user, form=form)
-
-    if request.method == 'POST':
-        try:
-            float(form.calories.data)
-            float(form.carbs.data)
-            float(form.fat.data)
-            float(form.protein.data)
-        except:
-            flash("Please enter valid numbers.")
-        else:
-            food = Food(food_name='Quick Add', count=1,
-                kcal=form.calories.data,
-                protein=form.protein.data,
-                fat=form.fat.data,
-                carbs=form.carbs.data,
-                unit='', meal=meal,
-                date=date, ndbno=-1, user_id=current_user.get_id())
-            db.session.add(food)
-            db.session.commit()
-        return redirect(url_for('diary', date_pick=date))
+#         # redirect back to diary; if date is today, exclude ugliness from URL
+#         todays_date = datetime.now().strftime('%B %d, %Y')
+#         if date_pick == todays_date:
+#             return redirect(url_for('diary'))
+#         else:
+#             return redirect(url_for('diary', date_pick=date_pick))
 
 
-@app.route('/diary/copyto/<string:date>/<string:meal>', methods=['GET', 'POST'])
-@login_required
-def copyto(date, meal):
-    form = CopyMealForm()
+# @app.route('/diary/quickadd/<string:date>/<string:meal>', methods=['GET', 'POST'])
+# @login_required
+# def quickadd(date=datetime.now().strftime('%B %d, %Y'), meal=None):
+#     user = User.query.filter_by(id=current_user.get_id()).first()
+#     form = QuickAddCals()
+
+#     if request.method == 'GET':
+#         return render_template('quickadd.html', user=user, form=form)
+
+#     if request.method == 'POST':
+#         try:
+#             float(form.calories.data)
+#             float(form.carbs.data)
+#             float(form.fat.data)
+#             float(form.protein.data)
+#         except:
+#             flash("Please enter valid numbers.")
+#         else:
+#             food = Food(food_name='Quick Add', count=1,
+#                 kcal=form.calories.data,
+#                 protein=form.protein.data,
+#                 fat=form.fat.data,
+#                 carbs=form.carbs.data,
+#                 unit='', meal=meal,
+#                 date=date, ndbno=-1, user_id=current_user.get_id())
+#             db.session.add(food)
+#             db.session.commit()
+#         return redirect(url_for('diary', date_pick=date))
+
+
+# @app.route('/diary/copyto/<string:date>/<string:meal>', methods=['GET', 'POST'])
+# @login_required
+# def copyto(date, meal):
+#     form = CopyMealForm()
     
-    if request.method == 'GET':
-        return render_template('copyto.html', form=form)
+#     if request.method == 'GET':
+#         return render_template('copyto.html', form=form)
 
-    if request.method == 'POST':
-        copy_to_date = form.dt.data.strftime('%B %d, %Y')
-        copy_to_meal = form.meal_select.data
-        copy_meal_items = Food.query.filter_by(user_id=current_user.get_id(),
-                                            date=date,
-                                            meal=meal)
+#     if request.method == 'POST':
+#         copy_to_date = form.dt.data.strftime('%B %d, %Y')
+#         copy_to_meal = form.meal_select.data
+#         copy_meal_items = Food.query.filter_by(user_id=current_user.get_id(),
+#                                             date=date,
+#                                             meal=meal)
         
-        for row in copy_meal_items:
-            db.session.expunge(row)
-            make_transient(row)
-            row.id = None
-            row.meal = copy_to_meal
-            row.date = copy_to_date
-            db.session.add(row)
+#         for row in copy_meal_items:
+#             db.session.expunge(row)
+#             make_transient(row)
+#             row.id = None
+#             row.meal = copy_to_meal
+#             row.date = copy_to_date
+#             db.session.add(row)
         
-        db.session.commit()
-        return redirect(url_for('diary', date_pick = copy_to_date))
+#         db.session.commit()
+#         return redirect(url_for('diary', date_pick = copy_to_date))
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-    else:
-        form = LoginForm()
-        if form.validate_on_submit():
-            user = User.query.filter_by(username=form.username.data).first()
-            if user is None or not user.check_password(form.password.data):
-                flash('Invalid username or password.')
-                return redirect(url_for('login'))
-            login_user(user, remember=form.remember_me.data)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                next_page = url_for('diary')
-            return redirect(next_page)
-        return render_template('login.html', form=form)
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if current_user.is_authenticated:
+#         return redirect(url_for('home'))
+#     else:
+#         form = LoginForm()
+#         if form.validate_on_submit():
+#             user = User.query.filter_by(username=form.username.data).first()
+#             if user is None or not user.check_password(form.password.data):
+#                 flash('Invalid username or password.')
+#                 return redirect(url_for('login'))
+#             login_user(user, remember=form.remember_me.data)
+#             next_page = request.args.get('next')
+#             if not next_page or url_parse(next_page).netloc != '':
+#                 next_page = url_for('diary')
+#             return redirect(next_page)
+#         return render_template('login.html', form=form)
 
 
 @app.route('/profile')
@@ -421,20 +421,20 @@ def macros_percent():
             return redirect(url_for('macros_percent'))
 
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-    else:
-        form = RegistrationForm()
-        if form.validate_on_submit():
-            user = User(username=form.username.data, email=form.email.data)
-            user.set_password(form.password.data)
-            db.session.add(user)
-            db.session.commit()
-            flash('Congratulations, you are now a registered user!')
-            return redirect(url_for('login'))
-        return render_template('register.html', form=form)
+# @app.route('/register', methods=['GET', 'POST'])
+# def register():
+#     if current_user.is_authenticated:
+#         return redirect(url_for('home'))
+#     else:
+#         form = RegistrationForm()
+#         if form.validate_on_submit():
+#             user = User(username=form.username.data, email=form.email.data)
+#             user.set_password(form.password.data)
+#             db.session.add(user)
+#             db.session.commit()
+#             flash('Congratulations, you are now a registered user!')
+#             return redirect(url_for('login'))
+#         return render_template('register.html', form=form)
 
 
 @app.route('/logout')

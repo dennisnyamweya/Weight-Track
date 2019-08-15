@@ -17,10 +17,10 @@ class SearchForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-#     username = StringField('Username', validators=[DataRequired()])
-#     password = PasswordField('Password', validators=[DataRequired()])
-#     remember_me = BooleanField('Remember Me')
-#     submit = SubmitField('Submit')
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('Remember Me')
+    submit = SubmitField('Submit')
 
 
 # class SetMacroForm(FlaskForm):

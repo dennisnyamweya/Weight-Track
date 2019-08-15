@@ -1,24 +1,15 @@
 {% extends 'base.html' %} {% block app_content %}
-<div id="page-wrapper">
+<link rel="stylesheet" type="text/css" href="static/index.css">
     <div class="container-fluid main-content-fluid">
+        <div class="home">
         {% if current_user.is_authenticated %}
-        <h2 class="text-center">Welcome, {{ current_user.username }}!</h2>
+        <h2 class="text-center">Welcome, {{ current_user.username }} to Weight-Track!</h2>
         {% else %}
-        <h2 class="text-center">Welcome!</h2>
+        <h2 class="text-center">Welcome to Weight-Tracker!</h2>
         {% endif %}
         <hr/>
-        <br/>
-        <p class="lead">
-            This is "Macro Tracker" (for lack of a better name). The goal with this site is to create a minimal and simplistic way to
-            track your macros/calories without all of the advertising and blog noise. The foods come from a USDA database
-            through their public API, which can be found
-            <a href="https://ndb.nal.usda.gov/ndb/api/doc" target="_blank">here</a>.
-        </p>
-        <p class="lead">
-            If you have any questions/comments/suggestions, you can contact me at
-            <a href="mailto:astenstevenc@gmail.com?Subject=Macro%20tracker" target="_blank">astenstevenc@gmail.com</a>. Find some of my other projects at
-            <a href="http://www.github.com/grassten" target="_blank">github.com/grassten</a>.</p>
-        </p>
+        
+
     </div>
 </div>
 {% endblock %}

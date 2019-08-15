@@ -1,7 +1,9 @@
-{% extends 'bootstrap/base.html' %} {% block title %} Steven's Macro Counter App {% endblock %} {% block navbar %} {% block
+{% extends 'bootstrap/base.html' %} {% block title %}  weight-Tracker-App {% endblock %} {% block navbar %} {% block
 styles %} {{super()}}
 <link rel="stylesheet" href="{{url_for('.static', filename='navbar_style_custom.css')}}">
 <link rel="stylesheet" href="{{url_for('.static', filename='global.css')}}">
+<script src="https://use.fontawesome.com/b5a3784533.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet"> {% endblock %}
 <div id="wrapper">
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -13,31 +15,23 @@ styles %} {{super()}}
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand text-center" href="{{ url_for('home') }}">Macro Tracker</a>
+			<a class="navbar-brand text-center" href="{{ url_for('home') }}">Weight Tracker</a>
 		</div>
 		<!--top menu-->
 		<ul class="nav navbar-right top-nav hidden-xs">
 			{% if current_user.is_anonymous %}
-			<li>
-				<a href="{{ url_for('login') }}">Login</a>
-			</li>
+			<li><a href="{{ url_for('login') }}">Login</a></li>
 			{% else %}
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span>
-						<i class="fas fa-user-circle fa-lg"></i>
-					</span>
+					<span><i class="fas fa-user-circle fa-lg"></i></span>
 					<span> {{ current_user.username }}</span>
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
-					<li>
-						<a href="{{ url_for('profile') }}">Profile</a>
-					</li>
+					<li><a href="{{ url_for('profile') }}">Profile</a></li>
 					<li class="divider"></li>
-					<li>
-						<a href="{{ url_for('logout') }}">Log Out</a>
-					</li>
+					<li><a href="{{ url_for('logout') }}">Log Out</a></li>
 				</ul>
 			</li>
 			{% endif %}
@@ -94,6 +88,20 @@ styles %} {{super()}}
 						</div>
 					</a>
 				</li>
+				<!-- dashboard -->
+				<li {% if 'dashboard' in request.path %}class="active" {% endif %}>
+					<a href="{{ url_for('dashboard') }}">
+						<div class="outer">
+							<div class="middle">
+								<div class="inner">
+									<span class="glyphicon glyphicon-home fa-3x"></span>
+									<br />Dashboard
+								</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<!-- dashy -->
 				<li {% if 'logout' in request.path %}class="active" {% endif %} class="hidden-sm hidden-md hidden-lg">
 					<a href="{{ url_for('logout') }}">
 						<div class="outer">

@@ -444,5 +444,6 @@ def logout():
     return redirect(url_for('home'))
 
 @app.route('/dashboard')
+@login_required
 def dashboard():
     return render_template('dashboard.html')

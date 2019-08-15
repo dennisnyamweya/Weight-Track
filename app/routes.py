@@ -209,43 +209,43 @@ def diary(date_pick=datetime.now().strftime('%B %d, %Y')):
         total_protein = dict(meals)
         total_fat = dict(meals)
 
-#         for food in foods:
-#             total_cals['total'] = total_cals['total'] + food.kcal
-#             total_carbs['total'] = total_carbs['total'] + food.carbs
-#             total_protein['total'] = total_protein['total'] + food.protein
-#             total_fat['total'] = total_fat['total'] + food.fat
+        for food in foods:
+            total_cals['total'] = total_cals['total'] + food.kcal
+            total_carbs['total'] = total_carbs['total'] + food.carbs
+            total_protein['total'] = total_protein['total'] + food.protein
+            total_fat['total'] = total_fat['total'] + food.fat
 
-#             for meal in meals:
-#                 if str(food.meal) == str(meal):
-#                     total_cals[meal] = total_cals[meal] + food.kcal
-#                     total_carbs[meal] = total_carbs[meal] + food.carbs
-#                     total_protein[meal] = total_protein[meal] + food.protein
-#                     total_fat[meal] = total_fat[meal] + food.fat
+            for meal in meals:
+                if str(food.meal) == str(meal):
+                    total_cals[meal] = total_cals[meal] + food.kcal
+                    total_carbs[meal] = total_carbs[meal] + food.carbs
+                    total_protein[meal] = total_protein[meal] + food.protein
+                    total_fat[meal] = total_fat[meal] + food.fat
 
-#         return render_template('diary.html', foods=foods, user=user, form=form,
-#                             form2=form2, total_fat=total_fat,
-#                             total_cals=total_cals, total_carbs=total_carbs,
-#                             total_protein=total_protein, date_pick=date_pick)
+        return render_template('diary.html', foods=foods, user=user, form=form,
+                            form2=form2, total_fat=total_fat,
+                            total_cals=total_cals, total_carbs=total_carbs,
+                            total_protein=total_protein, date_pick=date_pick)
 
-#     if request.method == 'POST':
+    if request.method == 'POST':
 
-#         if request.form["action"] == "remove":
-#             remove_id = form.entry_id.data
-#             user_id_for_row = Food.query.filter_by(
-#                 id=remove_id).first().user_id
-#             if str(user_id_for_row) == current_user.get_id():
-#                 Food.query.filter_by(id=remove_id).delete()
-#                 db.session.commit()
-#             else:
-#                 flash("Cannot access this entry.")
+        if request.form["action"] == "remove":
+            remove_id = form.entry_id.data
+            user_id_for_row = Food.query.filter_by(
+                id=remove_id).first().user_id
+            if str(user_id_for_row) == current_user.get_id():
+                Food.query.filter_by(id=remove_id).delete()
+                db.session.commit()
+            else:
+                flash("Cannot access this entry.")
 
-#         elif request.form["action"] == "back":
-#             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') -
-#                          timedelta(days=1)).strftime('%B %d, %Y')
+        elif request.form["action"] == "back":
+            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') -
+                         timedelta(days=1)).strftime('%B %d, %Y')
 
-#         elif request.form["action"] == "forward":
-#             date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
-#                          timedelta(days=1)).strftime('%B %d, %Y')
+        elif request.form["action"] == "forward":
+            date_pick = (datetime.strptime(form2.date.data, '%B %d, %Y') +
+                         timedelta(days=1)).strftime('%B %d, %Y')
 
 #         # redirect back to diary; if date is today, exclude ugliness from URL
 #         todays_date = datetime.now().strftime('%B %d, %Y')

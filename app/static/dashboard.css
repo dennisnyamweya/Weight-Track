@@ -65,21 +65,17 @@ body {
   }
   
   
-  /*
-   * Placeholder dashboard ideas
-   */
-  
   .placeholders {
-    margin-bottom: 30px;
-    text-align: center;
+      margin-bottom: 30px;
+      text-align: center;
   }
   .placeholders h4 {
-    margin-bottom: 0;
+      margin-bottom: 0;
   }
   .placeholder {
-    margin-bottom: 20px;
+      margin-bottom: 20px;
   }
   .placeholder img {
-    display: inline-block;
-    border-radius: 50%;
+      display: inline-block;
+       border-radius: 50%;
   }

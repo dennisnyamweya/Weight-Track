@@ -23,7 +23,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
-# class SetMacroForm(FlaskForm):
+class SetMacroForm(FlaskForm):
 #     PERCENT_CHOICES = [(.05, "5%"),
 #                        (.1, "10%"),
 #                        (.15, "15%"),

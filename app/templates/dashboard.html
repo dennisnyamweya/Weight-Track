@@ -1,12 +1,17 @@
 
 
-{% extends 'bootstrap/base.html' %} {% block title %}  Dashboard {% endblock %} {% block navbar %} {% block
-  styles %} {{super()}}
+{% extends 'bootstrap/base.html' %} 
+{% block title %} 
+ Dashboard
+  {% endblock %}
+   {% block navbar %} 
+  {% block styles %} {{super()}}
   <link rel="stylesheet" href="{{url_for('.static', filename='navbar_style_custom.css')}}">
   <link rel="stylesheet" href="{{url_for('.static', filename='global.css')}}">
   <script src="https://use.fontawesome.com/b5a3784533.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet"> {% endblock %}
+  <link href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" rel="stylesheet"> 
+  {% endblock %}
   <div id="wrapper">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="navbar-header">

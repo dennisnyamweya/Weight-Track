@@ -35,7 +35,7 @@ body {
   
  
   .nav-sidebar {
-       margin-right: -21px; /* 20px padding + 1px border */
+       margin-right: -21px; 
       margin-bottom: 20px;
      margin-left: -20px;
   }
@@ -51,17 +51,13 @@ body {
   }
   
   
-  /*
-   * Main content
-   */
-  
   .main {
-    padding: 20px;
+      padding: 20px;
   }
   @media (min-width: 768px) {
     .main {
-      padding-right: 40px;
-      padding-left: 40px;
+        padding-right: 40px;
+       padding-left: 40px;
     }
   }
   .main .page-header {

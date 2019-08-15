@@ -41,7 +41,7 @@
         </li>
         {% endif %}
       </ul>
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
           {% if current_user.is_anonymous %} 
           <li {% if 'login' in request.path %}class="active" {% endif %} class="hidden-sm hidden-md hidden-lg">
@@ -55,7 +55,7 @@
                 </div>
               </div>
             </a>
-          </li>				
+          </li>				 -->
           {% else %}
           <li {% if 'diary' in request.path %}class="active" {% endif %}>
             <a href="{{ url_for('diary')}}">

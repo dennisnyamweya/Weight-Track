@@ -1,0 +1,65 @@
+.custom_buttons{
+    background: none;
+    border: none;
+    height: 75px;
+    width: 75px;
+    border-radius: 0 !important;
+    background-color: #34495E;
+    color: white;
+}
+
+.custom_buttons:hover,
+.custom_buttons:active {
+    color: #3FC18B;
+}
+
+.remove-buttons {
+    background: none;
+    color: red;
+}
+
+.ellipsis_buttons {
+    background: none;
+    border: none;
+}
+
+.input-group .form-control {
+    height: 75px;
+    line-height: 75px;
+    font-size: 1.5em;
+    border-radius: 0 !important;
+}
+
+@media(min-width:767px) {
+    #page-wrapper .date-selectors {
+        margin-bottom:25px;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+@media(max-width:766px) {
+    #page-wrapper .date-selectors {
+        margin-bottom: 10px;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+.date-selectors {
+    max-width: 1400px;
+}
+
+.food-rows {
+    outline: thin solid; 
+    outline-color: #ECF0F1;
+}
+
+.table .meal-name-header {
+    font-size: 1.5em;
+    color: #2E4154;
+}
+
+.main-content-fluid .table {
+    margin: 0px;
+}

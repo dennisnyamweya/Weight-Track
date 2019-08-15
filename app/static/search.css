@@ -1,0 +1,9 @@
+.table-custom tr th {
+    border: none !important;
+    padding-left: 0px !important;
+}
+
+.table-custom .content-rows {
+    outline: thin solid; 
+    outline-color: #ECF0F1;
+}

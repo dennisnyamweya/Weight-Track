@@ -1,0 +1,38 @@
+.main-content-fluid {
+    background-color: white;
+    box-shadow: 0px 0px 6px 1px #888888;
+}
+
+@media(min-width:767px) {
+    .main-content-fluid {
+        padding: 30px;
+    }
+}
+
+@media(max-width:766px) {
+    .main-content-fluid {
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+.form-inline .form-control {
+    width: auto;
+    display: inline-block;
+}
+
+@media(max-width: 766px) {
+    #page-wrapper {
+        padding-top: 10px;
+    }
+}
+
+@media(min-width: 767px) {
+    #page-wrapper {
+        padding: 25px;
+    }
+}
+
+.main-content-fluid {
+    max-width: 1400px;
+}

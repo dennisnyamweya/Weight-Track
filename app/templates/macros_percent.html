@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block app_content %}
+
+<div id="page-wrapper">
+    <div class="container-fluid main-content-fluid">
+        <h2 class='text-center'>Set macros by percent</h2>
+        <hr/>
+        <br/>
+        <div class="text-center">
+            <form class="text-left col-md-6 col-md-offset-3" method="post">
+                {{ form.hidden_tag() }}
+                <div class="form-group row">
+                    <div class="col-md-4 col-form-label text-right">
+                        {{ form.calories.label }}:
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.calories(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4 col-form-label text-right">
+                        {{ form.protein.label }}:
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.protein(class="selectpicker form-control") }}
+                    </div>
+                    <div class="col-md-4">
+                        Current: {{ user.protein_grams }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4 col-form-label text-right">
+                        {{ form.fat.label }}:
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.fat(class="selectpicker form-control") }}
+                    </div>
+                    <div class="col-md-4">
+                        Current: {{ user.fat_grams }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4 col-form-label text-right">
+                        {{ form.carbs.label }}:
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.carbs(class="selectpicker form-control") }}
+                    </div>
+                    <div class="col-md-4">
+                        Current: {{ user.carbs_grams }}
+                    </div>
+                </div>
+                <div class="col-md-4 text-right">
+                    {{ form.change_macros(class="btn btn-primary mb-2") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

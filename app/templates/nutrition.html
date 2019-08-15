@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block app_content %}{% block styles %} {{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='inline_form_fix.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='nutrition.css')}}"> {% endblock %}
+<div id="page-wrapper">
+	<div class="container-fluid main-content-fluid">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+				<h3 class="text-center">{{ food_name }}</h3>
+			</div>
+		</div>
+
+		<!-- nutrition block -->
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4 col-xs-12">
+				<section class="performance-facts">
+					<header class="performance-facts__header">
+						<h1 class="performance-facts__title">Nutrition Facts</h1>
+						<p class="nutrition-p">Serving Size {{ food_measure }}</p>
+					</header>
+
+					<table class="tabletest performance-facts__table">
+						<thead>
+							<tr>
+								<th colspan="3" class="nutrition-rows small-info">
+									<b>Amount Per Serving</b>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th class="nutrition-rows" colspan="3">
+									<b>Calories</b>
+									{{ food_cals}} kcal
+								</th>
+							</tr>
+							<tr class="thick-row">
+								<td colspan="3" class="small-info">
+								</td>
+							</tr>
+							<tr>
+								<th class="nutrition-rows" colspan="3">
+									<b>Total Fat</b>
+									{{ food_fat }} g
+								</th>
+							</tr>
+							<tr>
+								<th class="nutrition-rows" colspan="3">
+									<b>Total Carbohydrate</b>
+									{{ food_carbs }} g
+								</th>
+							</tr>
+							<tr class="thick-end">
+								<th class="nutrition-rows" colspan="3">
+									<b>Protein</b>
+									{{ food_protein }} g
+								</th>
+							</tr>
+						</tbody>
+					</table>
+
+					<p class="nutrition-p small-info">
+						<b>
+							Calories per gram:
+						</b>
+					</p>
+					<p class="nutrition-p small-info text-center">
+						<b>
+							Fat 9 &bull; Carbohydrate 4 &bull; Protein 4
+						</b>
+					</p>
+
+				</section>
+			</div>
+		</div>
+		<!--end nutrition block-->
+		</br>
+		<form method='post'>
+			{{ form1.hidden_tag() }}
+			<div class="form-inline text-center">
+				{{ form1.quantity(class="form-control", placeholder="Quantity") }} {% if meal is none %} {{ form1.meal(class="form-control")
+				}} {% endif %} {{ form1.add(class="btn btn-primary mb-2") }}
+			</div>
+		</form>
+	</div>
+</div> {% endblock %}

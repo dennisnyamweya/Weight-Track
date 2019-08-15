@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block styles %} {{super()}}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}{% block scripts %}{{ super() }}
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function() {
+    $( ".dtpick" ).datepicker({
+        dateFormat: 'MM d, yy'
+    });
+});
+</script>
+{% endblock %}
+
+{% block app_content %}
+<div id="page-wrapper">
+    <div class="container-fluid main-content-fluid">
+        <h2 class='text-center'>Set macros by percent</h2>
+        <hr/>
+        <br/>
+        <div class="text-center">
+            <form class="text-left col-md-6 col-md-offset-3" method="post">
+                {{ form.hidden_tag() }}
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        {{ form.dt(readonly=true, class="dtpick") }}    
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.meal_select(class="selectpicker form-control") }}
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary" name="action" value="copy">
+                            Copy
+                        </button>                    
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

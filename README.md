@@ -7,6 +7,8 @@
 Charles Onkoba
 
 ### Prerequisites
-*Python6.7
-*pip
-*Virtual environment(virtualenv)
+* Python6.7
+* pip
+* Virtual environment(virtualenv)
+* Flask-Mail
+* PostgreSQL

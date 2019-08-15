@@ -49,7 +49,7 @@ def search(date=None, meal=None):
         return render_template('search.html', form=form, food_list_clean=food_list_clean,
                                recent_list=recent_list, date=date, meal=meal)
 
-    if request.method == 'POST':
+    if request.method == 'POST  ':
         if request.form["action"] == "multiadd":
             food_ids = request.form.getlist("selected")
             

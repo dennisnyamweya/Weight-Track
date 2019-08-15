@@ -13,11 +13,7 @@ body {
     background-color: #41D89E;
   }
   
-  /*
-   * Sidebar
-   */
-  
-  /* Hide for mobile, show later */
+
   .sidebar {
     display: none;
   }
